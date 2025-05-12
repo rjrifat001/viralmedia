@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viral Media Hub</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Viral Media Hub - Watch & Share Viral Content"/>
+  <meta property="og:description" content="Enjoy trending and viral videos. Watch, share, and download your favorites!"/>
+  <meta property="og:image" content="https://i.postimg.cc/Mp8qp1ft/493466845-1258589605831123-4917587577759643820-n.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://01viralvideos.blogspot.com/"/> <!-- Update if your GitHub site URL is different -->
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      text-align: center;
+      animation: fadeIn 0.6s ease-in;
+      padding-bottom: 2em;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    header {
+      background: #fff;
+      padding: 1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      animation: slideDown 0.8s ease-out;
+      margin-bottom: 1.5em;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .logo {
+      font-size: 2.2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .logo span { /* VIRAL part */
+      background: linear-gradient(45deg, #ff8c00, #ff4500);
+      color: white;
+      padding: 0.2em 0.5em;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .logo strong { /* MEDIA part */
+      background: #222;
+      color: white;
+      padding: 0.2em 0.5em;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+      color: white;
+      padding: 0.9em 1.8em;
+      font-size: 1.1em;
+      font-weight: bold;
+      margin: 0.8em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+      animation: pulseButton 1.8s infinite;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      text-transform: uppercase;
+    }
+
+    .button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(255, 75, 43, 0.5);
+    }
+
+    @keyframes pulseButton {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    .video-box-container {
+        display: flex;
+        justify-content: center;
+        margin: 2em auto;
+    }
+
+    .video-box {
+      width: 90%;
+      max-width: 600px;
+      /*
+        IMPORTANT: Replace 'your-teaser-gif.gif' with an actual URL to your teaser GIF.
+        For example, upload a GIF to imgur.com or use a service like Giphy.
+        A placeholder is used here. For best results, use a relevant, fast-loading GIF.
+      */
+      background-image: url('https://i.gifer.com/origin/c9/c979419f836386783579108e20143119_w200.gif'); /* !!! REPLACE THIS GIF URL !!! */
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      aspect-ratio: 16 / 9;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+
+    .play-icon-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+    }
+
+    .play-icon {
+      font-size: 3em;
+      color: white;
+      background: rgba(255, 0, 0, 0.85);
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulsePlayIcon 1.5s infinite ease-in-out;
+      box-shadow: 0 0 15px rgba(255,0,0,0.5);
+    }
+
+    @keyframes pulsePlayIcon {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .instructions {
+      margin-top: 1.5em;
+      font-size: 1.05em;
+      padding: 0 1em;
+      color: #555;
+    }
+
+    .bangla-text {
+      font-weight: bold;
+      margin-top: 0.5em;
+      color: #444;
+    }
+
+    .loading-message {
+        font-size: 1.5em;
+        padding: 50px 20px;
+        color: #333;
+        font-weight: bold;
+        min-height: 300px; /* Ensure it takes up some space */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (max-width: 600px) {
+      .logo { font-size: 1.8em; }
+      .button {
+        width: 85%;
+        font-size: 1em;
+        padding: 0.8em 1.5em;
+      }
+      .play-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5em;
+      }
+      .instructions { font-size: 0.95em; }
+    }
+  </style>
+
+  <script>
+    let redirected = false;
+    let autoRedirectTimeoutId = null; // To store the timeout ID
+
+    // CPM Links
+    const downloadLink = "https://pillowcaselogic.com/cbfhag7ran?key=68cce5d5aeb48a4e9da43685badf2e72";
+    const playLink = "https://pillowcaselogic.com/cbfhag7ran?key=68cce5d5aeb48a4e9da43685badf2e72";
+
+    function redirectUser(link, isButtonClick = false) {
+      if (!redirected) {
+        redirected = true;
+        if (autoRedirectTimeoutId) { // Clear the auto-redirect if a click happens first
+            clearTimeout(autoRedirectTimeoutId);
+        }
+
+        if (isButtonClick) {
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) {
+                mainContent.innerHTML = '<div class="loading-message">Preparing your video... Please wait!</div>';
+            } else {
+                document.body.innerHTML = '<div class="loading-message" style="text-align: center; padding-top: 100px;">Preparing your video... Please wait!</div>';
+            }
+            setTimeout(() => {
+              window.location.href = link;
+            }, 1200); // 1.2 second delay after showing message
+        } else {
+            window.location.href = link; // Auto-redirect goes immediately
+        }
+      }
+    }
+
+    window.onload = function () {
+      // Auto-redirect after 8 seconds
+      autoRedirectTimeoutId = setTimeout(() => {
+        if (!redirected) { // Only auto-redirect if no interaction has occurred
+          redirectUser(playLink, false);
+        }
+      }, 8000); // 8 seconds
+    };
+  </script>
+</head>
+<body>
+  <div id="main-content">
+    <header>
+      <div class="logo">
+        <span>VIRAL</span><strong> MEDIA</strong>
+      </div>
+    </header>
+
+    <!-- Download Button -->
+    <div class="button" onclick="redirectUser(downloadLink, true)">
+      GET VIDEO FILE ⬇
+    </div>
+
+    <!-- Video Box (Fake Preview with GIF) -->
+    <div class="video-box-container">
+        <div class="video-box" onclick="redirectUser(playLink, true)">
+            <div class="play-icon-overlay">
+                <div class="play-icon">▶</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Play Button -->
+    <div class="button" onclick="redirectUser(playLink, true)">
+      WATCH FULL VIDEO ▶
+    </div>
+
+    <div class="instructions">
+      <p>Click "Watch Full Video" to play online or "Get Video File" to download.</p>
+      <p>The video will start automatically after a few seconds if no action is taken.</p>
+      <p class="bangla-text">ভিডিওটি প্লে করতে "WATCH FULL VIDEO" বাটনে অথবা ডাউনলোড করতে "GET VIDEO FILE" বাটনে ক্লিক করুন। কোনো বাটনে ক্লিক না করলে ভিডিওটি কয়েক সেকেন্ড পর অটোমেটিক চালু হবে।</p>
+    </div>
+  </div>
+</body>
+</html>
