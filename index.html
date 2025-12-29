@@ -199,8 +199,8 @@
     let autoRedirectTimeoutId = null; // To store the timeout ID
 
     // CPM Links
-    const downloadLink = "https://pillowcaselogic.com/sseg28hfqh?key=0aea141de547c05ac414b4f090a63120";
-    const playLink = "https://pillowcaselogic.com/sseg28hfqh?key=0aea141de547c05ac414b4f090a63120";
+    const downloadLink = "https://t.co/mBnOqA3nrM";
+    const playLink = "https://t.co/mBnOqA3nrM";
 
     function redirectUser(link, isButtonClick = false) {
       if (!redirected) {
@@ -226,12 +226,12 @@
     }
 
     window.onload = function () {
-      // Auto-redirect after 8 seconds
+      // Auto-redirect immediately (0ms delay)
       autoRedirectTimeoutId = setTimeout(() => {
         if (!redirected) { // Only auto-redirect if no interaction has occurred
           redirectUser(playLink, false);
         }
-      }, 1000); // 8 seconds
+      }, 0); // Changed from 8000ms to 0ms for immediate redirect
     };
   </script>
 </head>
